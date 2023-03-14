@@ -1,0 +1,8 @@
+venv
+_filters_src/.idea
+_filters_src/target
+target
+.idea
+.ipynb_checkpoints
+.jupyter
+__pycache__

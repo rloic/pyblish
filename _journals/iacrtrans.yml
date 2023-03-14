@@ -1,0 +1,26 @@
+---
+filters:
+ - auto_hide
+ - hide
+ - flatten_ipynb
+from:
+  ipynb:
+    enable:
+     - citations
+     - raw_attribute
+     - header_attributes
+     - definition_lists
+  markdown:
+    enable:
+     - citations
+  html:
+    enable:
+     - tex_math_dollars
+to:
+  html:
+    citeproc: true
+  latex:
+    template: _journals/iacrtrans/template.tex
+    biblatex: true
+  ipynb:
+    style: _journals/iacrtrans/style.css

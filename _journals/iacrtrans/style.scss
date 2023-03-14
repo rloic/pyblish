@@ -1,0 +1,65 @@
+body {
+    counter-reset: section;
+}
+.jp-RenderedHTMLCommon, .jp-RenderedMarkdown, .jp-MarkdownOutput { 
+    font-size: 18px;
+    font-family: "Latin Modern", serif;
+    * {
+        font-family: "Latin Modern", serif;
+    }
+    h1, h2, h3, h4, h5, h6 { 
+        font-weight: bold;
+        font-family: "Latin Modern Sans", sans; 
+    }
+    h1:before {
+        content: counter(section)". ";
+        counter-increment: section;
+    }
+    h1[id$="{-}"]:before {
+        content: "";
+        counter-increment: none;
+    }
+    h1 {
+        font-size: 31.10px; 
+        counter-reset: subsection; 
+    }
+    h2 { 
+        font-size: 25.92px; 
+        counter-reset: subsubsection;
+    }
+    h2:before {
+        content: counter(section)"."counter(subsection)". " ;
+        counter-increment: subsection;
+    }
+    h2[id$="{-}"]:before {
+        content: "";
+        counter-increment: none;
+    }
+    h3 { font-size: 18px; }
+    h3:before {
+        content: counter(section)"."counter(subsection)"."counter(subsubsection)". " ;
+        counter-increment: subsubsection;
+    }
+    h3[id$="{-}"]:before {
+        content: "";
+        counter-increment: none;
+    }
+    h4 { font-size: 18px; }
+    h5 { font-size: 18px; }
+    pre, code, samp, pre *, code *, samp * { 
+        font-family: "Latin Modern Monospace", monospace; 
+        font-size: 18px; 
+    }
+    :not(pre) > code {
+        background: none;
+    }
+    a:link, a:visited { 
+        font-family: "Latin Modern Monospace", monospace; 
+        color: #ec008c;
+    } 
+    a:link[href^="#"], a:visited[href^="#"] { 
+        font-family: "Latin Modern Sans", serif;
+        color: #4c0000;
+        font-size: 1.2em;
+    }   
+}
