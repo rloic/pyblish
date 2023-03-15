@@ -20,3 +20,7 @@ path = "src/flatten_ipynb.rs"
 [[bin]]
 name = "auto_hide"
 path = "src/auto_hide.rs"
+
+[[bin]]
+name = "latex_env"
+path = "src/latex_env.rs"

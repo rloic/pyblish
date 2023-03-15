@@ -3,6 +3,7 @@ filters:
  - auto_hide
  - hide
  - flatten_ipynb
+ - latex_env
 from:
   ipynb:
     enable:
@@ -10,6 +11,8 @@ from:
      - raw_attribute
      - header_attributes
      - definition_lists
+     - native_divs
+     - native_spans
   markdown:
     enable:
      - citations
@@ -24,3 +27,20 @@ to:
     biblatex: true
   ipynb:
     style: _journals/iacrtrans/style.css
+environments:
+  - theorem
+  - proposition
+  - problem
+  - lemma
+  - conjecture
+  - corollary
+  - claim
+  - definition
+  - example
+  - exercise
+  - property
+  - question
+  - solution
+  - remark
+  - note
+  - case

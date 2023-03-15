@@ -1,0 +1,77 @@
+---
+filters:
+ - auto_hide
+ - hide
+ - flatten_ipynb
+ - latex_env
+from:
+  ipynb:
+    enable:
+     - citations
+     - raw_attribute
+     - header_attributes
+     - definition_lists
+     - fenced_divs
+     - bracketed_spans
+     - native_divs
+     - native_spans
+  markdown:
+    enable:
+     - citations
+  html:
+    enable:
+     - tex_math_dollars
+to:
+  html:
+    citeproc: true
+  latex:
+    template: _journals/lipics/template.tex
+    natbib: true
+#  ipynb:
+#    style: _journals/iacrtrans/style.css
+environments: 
+  - theorem
+  - lemma
+  - corollary
+  - proposition
+  - conjecture
+  - observation
+  - exercise
+  - definition
+  - example
+  - note
+  - remark
+  - claim
+  - proof
+  - claimproof
+provides:
+  - lmodern
+  - fontawesome5
+  - fontenc
+  - textcomp
+  - eucal
+  - amssymb
+  - soul
+  - color
+  - xcolor
+  - babel
+  - amsmath
+  - enumerate
+  - graphicx
+  - array
+  - multirow
+  - tabularx
+  - listings
+  - lineno
+  - hyperxmp
+  - totpages
+  - hyperref
+  - colorprofiles
+  - caption
+  - rotating
+  - subcaption
+  - comment
+  - amsthm
+  - thm-restate
+  - cleveref
+  - aliascnt

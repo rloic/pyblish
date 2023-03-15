@@ -52,6 +52,18 @@ def read_metadata(path):
             data.update(read_metadata(use_path))
     return data
 
+def metadata_redirections(path):
+    paths = [path]
+    data = {}
+    with open(path, 'r') as metadata:
+        yml = yaml.safe_load(metadata.read())
+        if yml is not None:
+            data = yml
+        if 'use' in data:
+            use_path = data['use']
+            del data['use']
+            paths = paths + metadata_redirections(use_path)
+    return paths
 
 class _PyblishConverter:
     def __init__(self):
@@ -428,12 +440,22 @@ class Caption(InlineTag):
 def debug(metadata, paths):
     import os
     os.makedirs('target/debug', exist_ok=True)
-    Pyblish.format_from_files(paths, 'target/debug/output.json', 'ipynb', 'json', '--metadata-file', metadata)
-    Pyblish.format_from_files(paths, 'target/debug/output.tex', 'ipynb', 'latex', '--metadata-file', metadata)
-
+    metadata_files = metadata_redirections(metadata)
+    metadata = []
+    for metadata_file in metadata_files:
+        metadata.append('--metadata-file')
+        metadata.append(metadata_file)
+    Pyblish.format_from_files(paths, 'target/debug/output.json', 'ipynb', 'json', *tuple(metadata))
+    Pyblish.format_from_files(paths, 'target/debug/output.md', 'ipynb', 'gfm', *tuple(metadata))
+    Pyblish.format_from_files(paths, 'target/debug/output.tex', 'ipynb', 'latex', *tuple(metadata))
 
 def release(metadata, paths, output):
-    Pyblish.format_from_files(paths, output, 'ipynb', 'latex', '--metadata-file', metadata)
+    metadata_files = metadata_redirections(metadata)
+    metadata = []
+    for metadata_file in metadata_files:
+        metadata.append('--metadata-file')
+        metadata.append(metadata_file)
+    Pyblish.format_from_files(paths, output, 'ipynb', 'latex', *tuple(metadata))
     call(['latexmk', '-pdf', output])
     call(['latexmk', '-c', output])
 
