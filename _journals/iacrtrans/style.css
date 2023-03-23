@@ -1,89 +1,79 @@
+@charset "UTF-8";
 body {
-	counter-reset: section;
+  counter-reset: section, subsection, subsubsection, theorem;
 }
 
 .jp-RenderedHTMLCommon, .jp-RenderedMarkdown, .jp-MarkdownOutput {
-	font-size: 18px;
-	font-family: "Latin Modern", serif;
+  font-size: 18px;
+  font-family: "Latin Modern", serif;
 }
-
 .jp-RenderedHTMLCommon *, .jp-RenderedMarkdown *, .jp-MarkdownOutput * {
-	font-family: "Latin Modern", serif;
+  font-family: "Latin Modern", serif;
 }
-
 .jp-RenderedHTMLCommon h1, .jp-RenderedHTMLCommon h2, .jp-RenderedHTMLCommon h3, .jp-RenderedHTMLCommon h4, .jp-RenderedHTMLCommon h5, .jp-RenderedHTMLCommon h6, .jp-RenderedMarkdown h1, .jp-RenderedMarkdown h2, .jp-RenderedMarkdown h3, .jp-RenderedMarkdown h4, .jp-RenderedMarkdown h5, .jp-RenderedMarkdown h6, .jp-MarkdownOutput h1, .jp-MarkdownOutput h2, .jp-MarkdownOutput h3, .jp-MarkdownOutput h4, .jp-MarkdownOutput h5, .jp-MarkdownOutput h6 {
-	font-weight: bold;
-	font-family: "Latin Modern Sans", sans;
+  font-weight: bold;
+  font-family: "Latin Modern Sans", sans;
 }
-
-.jp-RenderedHTMLCommon h1:before, .jp-RenderedMarkdown h1:before, .jp-MarkdownOutput h1:before {
-	content: counter(section) " ";
-	counter-increment: section;
-}
-
-.jp-RenderedHTMLCommon h1[id$="{-}"]:before, .jp-RenderedMarkdown h1[id$="{-}"]:before, .jp-MarkdownOutput h1[id$="{-}"]:before {
-	content: "";
-	counter-increment: none;
-}
-
 .jp-RenderedHTMLCommon h1, .jp-RenderedMarkdown h1, .jp-MarkdownOutput h1 {
-	font-size: 31.10px;
-	counter-reset: subsection;
+  font-size: 31.1px;
+  counter-reset: subsection;
 }
-
+.jp-RenderedHTMLCommon h1:before, .jp-RenderedMarkdown h1:before, .jp-MarkdownOutput h1:before {
+  content: counter(section) ". ";
+  counter-increment: section;
+}
+.jp-RenderedHTMLCommon h1[id$="{-}"]:before, .jp-RenderedMarkdown h1[id$="{-}"]:before, .jp-MarkdownOutput h1[id$="{-}"]:before {
+  content: "";
+  counter-increment: none;
+}
 .jp-RenderedHTMLCommon h2, .jp-RenderedMarkdown h2, .jp-MarkdownOutput h2 {
-	font-size: 25.92px;
-	counter-reset: subsubsection;
+  font-size: 25.92px;
+  counter-reset: subsubsection;
 }
-
 .jp-RenderedHTMLCommon h2:before, .jp-RenderedMarkdown h2:before, .jp-MarkdownOutput h2:before {
-	content: counter(section) "." counter(subsection) " ";
-	counter-increment: subsection;
+  content: counter(section) "." counter(subsection) ". ";
+  counter-increment: subsection;
 }
-
 .jp-RenderedHTMLCommon h2[id$="{-}"]:before, .jp-RenderedMarkdown h2[id$="{-}"]:before, .jp-MarkdownOutput h2[id$="{-}"]:before {
-	content: "";
-	counter-increment: none;
+  content: "";
+  counter-increment: none;
 }
-
 .jp-RenderedHTMLCommon h3, .jp-RenderedMarkdown h3, .jp-MarkdownOutput h3 {
-	font-size: 18px;
+  font-size: 18px;
 }
-
 .jp-RenderedHTMLCommon h3:before, .jp-RenderedMarkdown h3:before, .jp-MarkdownOutput h3:before {
-	content: counter(section) "." counter(subsection) "." counter(subsubsection) " ";
-	counter-increment: subsubsection;
+  content: counter(section) "." counter(subsection) "." counter(subsubsection) ". ";
+  counter-increment: subsubsection;
 }
-
 .jp-RenderedHTMLCommon h3[id$="{-}"]:before, .jp-RenderedMarkdown h3[id$="{-}"]:before, .jp-MarkdownOutput h3[id$="{-}"]:before {
-	content: "";
-	counter-increment: none;
+  content: "";
+  counter-increment: none;
 }
-
 .jp-RenderedHTMLCommon h4, .jp-RenderedMarkdown h4, .jp-MarkdownOutput h4 {
-	font-size: 18px;
+  font-size: 18px;
 }
-
 .jp-RenderedHTMLCommon h5, .jp-RenderedMarkdown h5, .jp-MarkdownOutput h5 {
-	font-size: 18px;
+  font-size: 18px;
 }
-
 .jp-RenderedHTMLCommon pre, .jp-RenderedHTMLCommon code, .jp-RenderedHTMLCommon samp, .jp-RenderedHTMLCommon pre *, .jp-RenderedHTMLCommon code *, .jp-RenderedHTMLCommon samp *, .jp-RenderedMarkdown pre, .jp-RenderedMarkdown code, .jp-RenderedMarkdown samp, .jp-RenderedMarkdown pre *, .jp-RenderedMarkdown code *, .jp-RenderedMarkdown samp *, .jp-MarkdownOutput pre, .jp-MarkdownOutput code, .jp-MarkdownOutput samp, .jp-MarkdownOutput pre *, .jp-MarkdownOutput code *, .jp-MarkdownOutput samp * {
-	font-family: "Latin Modern Monospace", monospace;
-	font-size: 18px;
+  font-family: "Latin Modern Monospace", monospace;
+  font-size: 18px;
 }
-
 .jp-RenderedHTMLCommon :not(pre) > code, .jp-RenderedMarkdown :not(pre) > code, .jp-MarkdownOutput :not(pre) > code {
-	background: none;
+  background: none;
 }
-
 .jp-RenderedHTMLCommon a:link, .jp-RenderedHTMLCommon a:visited, .jp-RenderedMarkdown a:link, .jp-RenderedMarkdown a:visited, .jp-MarkdownOutput a:link, .jp-MarkdownOutput a:visited {
-	font-family: "Latin Modern Monospace", monospace;
-	color: #ec008c;
+  font-family: "Latin Modern Monospace", monospace;
+  color: #ec008c;
+}
+.jp-RenderedHTMLCommon a:link[href^="#"], .jp-RenderedHTMLCommon a:visited[href^="#"], .jp-RenderedMarkdown a:link[href^="#"], .jp-RenderedMarkdown a:visited[href^="#"], .jp-MarkdownOutput a:link[href^="#"], .jp-MarkdownOutput a:visited[href^="#"] {
+  font-family: "Latin Modern Sans", sans;
+  color: #4c0000;
+  font-size: 1.2em;
+}
+.jp-RenderedHTMLCommon .theorem:before , .jp-RenderedMarkdown .theorem:before , .jp-MarkdownOutput .theorem:before  {
+  content: "Theorem";
+  counter-increment: none;
 }
 
-.jp-RenderedHTMLCommon a:link[href^="#"], .jp-RenderedHTMLCommon a:visited[href^="#"], .jp-RenderedMarkdown a:link[href^="#"], .jp-RenderedMarkdown a:visited[href^="#"], .jp-MarkdownOutput a:link[href^="#"], .jp-MarkdownOutput a:visited[href^="#"] {
-	font-family: "Latin Modern Sans", serif;
-	color: #4c0000;
-	font-size: 1.2em;
-}
+/*# sourceMappingURL=style.css.map */

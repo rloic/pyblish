@@ -1,5 +1,5 @@
 body {
-    counter-reset: section;
+    counter-reset: section, subsection, subsubsection, theorem;
 }
 .jp-RenderedHTMLCommon, .jp-RenderedMarkdown, .jp-MarkdownOutput { 
     font-size: 18px;
@@ -11,6 +11,10 @@ body {
         font-weight: bold;
         font-family: "Latin Modern Sans", sans; 
     }
+    h1 {
+        font-size: 31.10px; 
+        counter-reset: subsection; 
+    }
     h1:before {
         content: counter(section)". ";
         counter-increment: section;
@@ -19,10 +23,7 @@ body {
         content: "";
         counter-increment: none;
     }
-    h1 {
-        font-size: 31.10px; 
-        counter-reset: subsection; 
-    }
+
     h2 { 
         font-size: 25.92px; 
         counter-reset: subsubsection;
@@ -35,7 +36,9 @@ body {
         content: "";
         counter-increment: none;
     }
-    h3 { font-size: 18px; }
+    h3 {
+        font-size: 18px;
+    }
     h3:before {
         content: counter(section)"."counter(subsection)"."counter(subsubsection)". " ;
         counter-increment: subsubsection;
@@ -58,8 +61,12 @@ body {
         color: #ec008c;
     } 
     a:link[href^="#"], a:visited[href^="#"] { 
-        font-family: "Latin Modern Sans", serif;
+        font-family: "Latin Modern Sans", sans;
         color: #4c0000;
         font-size: 1.2em;
-    }   
+    }
+    .theorem:before {
+        content: "Theorem";
+        counter-increment: none;
+    }
 }
