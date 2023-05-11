@@ -15,7 +15,7 @@ fn is_kernel_code_block(attr: &Attr, kernel_language: &String) -> bool {
 fn is_visible(attr: &Attr) -> bool {
     attr.classes.contains(&String::from("visible")) ||
         attr.attributes.iter()
-            .find(|(k, v)| k == &String::from("tags") || v.contains("visible"))
+            .find(|(k, v)| k == &String::from("tags") && v.contains("visible"))
             .is_some()
 }
 
@@ -38,7 +38,7 @@ fn auto_hide(block: Block, kernel_language: &Option<String>) -> Block {
                 Block::Div(
                     attr,
                     blocks.iter()
-                        .flat_map(|it| {
+                        .filter_map(|it| {
                             match it {
                                 Block::CodeBlock(attr, _) if is_kernel_code_block(attr, kernel_language) && !is_visible(&parent_attr) => None,
                                 _ => Some(it)

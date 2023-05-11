@@ -6,7 +6,7 @@ import yaml
 from os.path import exists
 from os import remove
 from typing import List
-
+import sys
 
 class Extensions:
     def __init__(self):
@@ -197,6 +197,9 @@ def safe_repr_latex(obj):
         repr = obj._repr_latex_()
         if repr is not None:
             return repr
+    except AttributeError:
+        return str(obj)
+    try:
         repr = obj._repr_html_()
         if repr is not None:
             return Pyblish.format(repr, 'html', 'latex')

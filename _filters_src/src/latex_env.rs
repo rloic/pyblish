@@ -152,10 +152,8 @@ fn main() -> io::Result<()> {
     let mut pandoc: Pandoc = serde_json::from_str(&pandoc_json)?;
     if format == &String::from("latex") {
         let environments = extract_environemnts(&pandoc.meta);
-        eprintln!("{:?}", environments);
         let mut transform_environments = |b: Block| { transform_environments(b, &environments) };
         let commands = extract_commands(&pandoc.meta);
-        eprintln!("{:?}", commands);
         let mut transform_commands = |i: Inline| { transform_commands(i, &commands) };
         pandoc = pandoc
             .walk(&mut transform_environments)

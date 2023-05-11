@@ -7,6 +7,7 @@ filters:
 from:
   ipynb:
     enable:
+     - fenced_divs
      - citations
      - raw_attribute
      - header_attributes
@@ -16,6 +17,8 @@ from:
   markdown:
     enable:
      - citations
+     - native_divs
+     - native_spans
   html:
     enable:
      - tex_math_dollars
